@@ -1,0 +1,14 @@
+<div class='row'>
+  <h1>Weight & balance</h1>
+  <h3 class="subheader">A simple tool to perform weight and balance calculations</h3>
+  <h5>At this moment we can only tell if the takeoff weight is within limits or not. Refer to your POH for C.G. limits.</h5>
+
+  <%= form_tag '/weight_and_balance/calculate', method: :post do %>
+    <div class="large-2">
+      <%= label_tag(:max_takeoff, 'Maximum takeoff weight:') %>
+      <%= number_field(:weight, :max_takeoff, in: 1.00..10000.00, step: 0.01) %>
+    </div>
+    <%= render partial: 'weight_and_balance/weight_input_table' %>
+    <%= submit_tag 'Calculate' %>
+  <% end %>
+</div>

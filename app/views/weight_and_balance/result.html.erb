@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="large-2">
+    <%= label_tag(:max_takeoff, 'Maximum takeoff weight:') %>
+    <%= @weight['max_takeoff'] %>
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <th>Weight</th>
+      <th>Arm</th>
+      <th>Moment</th>
+    </tr>
+    </thead>
+    <tr>
+      <th>Empty weight</th>
+      <% @data.each do |column| %>
+        <td><%=column['empty']%></td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>Front seats</th>
+      <% @data.each do |column| %>
+        <td><%=column['front']%></td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>Rear seats</th>
+      <% @data.each do |column| %>
+        <td><%=column['rear']%></td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>Baggage</th>
+      <% @data.each do |column| %>
+        <td><%=column['baggage']%></td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>Fuel</th>
+      <% @data.each do |column| %>
+        <td><%=column['fuel']%></td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>Fuel allowance</th>
+      <% @data.each do |column| %>
+        <td><%=column['fuel_allowance']%></td>
+      <% end %>
+    </tr>
+    <tr>
+      <th>Takeoff weight</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
