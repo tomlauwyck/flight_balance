@@ -20,11 +20,8 @@ RSpec.describe WeightAndBalanceController, type: :controller do
     let(:arm) {{"arm"=>{"empty"=>"85.81", "front"=>"80.5", "rear"=>"118.1", "baggage"=>"142.8", "fuel"=>"95", "fuel_allowance"=>"95"}}}
     let(:moment) {{"moment"=>{"empty"=>"135486.19", "front"=>"15972.81", "rear"=>"1301.46", "baggage"=>"2856", "fuel"=>"27360", "fuel_allowance"=>"-665"}}}
     let(:params) { weight.merge!(arm).merge!(moment) }
-    # before { post :calculate, weight, arm, moment }
-    before do
 
-      post :calculate, params
-    end
+    before { post :calculate, params }
 
     it 'renders the results page' do
       expect(response).to render_template :result

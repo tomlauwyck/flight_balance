@@ -55,4 +55,12 @@
       <td></td>
     </tr>
   </table>
+  <div class="large-4">
+    <% if @within_limits %>
+      <p>Total weight is within the limit</p>
+    <% else %>
+      <p>Total weight is not within the limit</p>
+    <% end %>
+
+  </div>
 </div>
