@@ -5,7 +5,6 @@ class WeightAndBalanceController < ApplicationController
   end
 
   def calculate
-
     @weight = params[:weight].dup
     @arm = params[:arm].dup
     @moment = params[:moment].dup
