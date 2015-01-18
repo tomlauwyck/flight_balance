@@ -49,10 +49,10 @@
       <% end %>
     </tr>
     <tr>
-      <th>Takeoff weight</th>
-      <td></td>
-      <td></td>
-      <td></td>
+      <th>Totals</th>
+      <% @totals.each do |column| %>
+        <td><%=column%></td>
+      <% end %>
     </tr>
   </table>
   <div class="large-4">

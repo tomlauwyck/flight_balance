@@ -10,19 +10,19 @@ RSpec.describe WeightAndBalanceCalculation, type: :model do
     let(:totals) { WeightAndBalanceCalculation.execute(weight, moment) }
 
     it 'returns a hash' do
-      expect(totals).to be_a(Hash)
+      expect(totals).to be_a(Array)
     end
 
     it 'calculates the total weight by summing all weights' do
-      expect(totals["weight"]).to eq(2083.42)
+      expect(totals[0]).to eq(2083.42)
     end
 
     it 'calculates the total moment by summing all moments' do
-      expect(totals["moment"]).to eq(182311.46)
+      expect(totals[2]).to eq(182311.46)
     end
 
     it 'calculates the total arm by dividing the total moment by the total weight' do
-      expect(totals["arm"]).to eq(87.50586055620086)
+      expect(totals[1]).to eq(87.50586055620086)
     end
   end
 end

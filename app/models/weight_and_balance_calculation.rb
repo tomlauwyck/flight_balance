@@ -4,7 +4,7 @@ class WeightAndBalanceCalculation
   def self.execute(weights, moments)
     tot_weight, tot_moment = sum_weights_and_moments(weights, moments)
     tot_arm = arm_total(tot_weight, tot_moment)
-    return { "weight"=>tot_weight, "arm"=>tot_arm, "moment"=>tot_moment }
+    return [tot_weight, tot_arm, tot_moment]
   end
 
   private
