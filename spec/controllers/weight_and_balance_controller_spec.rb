@@ -16,10 +16,13 @@ RSpec.describe WeightAndBalanceController, type: :controller do
   end
 
   describe 'POST #calculate' do
-    let(:weight) {{"weight"=>{"max_takeoff"=>"2440", "empty"=>"1578.98", "front"=>"192.42", "rear"=>"11.02", "baggage"=>"20", "fuel"=>"288", "fuel_allowance"=>"-7"}}}
+    let!(:weight) {{"weight"=>{"max_takeoff"=>"2440", "empty"=>"1578.98", "front"=>"192.42", "rear"=>"11.02", "baggage"=>"20", "fuel"=>"288", "fuel_allowance"=>"-7"}}}
     let(:arm) {{"arm"=>{"empty"=>"85.81", "front"=>"80.5", "rear"=>"118.1", "baggage"=>"142.8", "fuel"=>"95", "fuel_allowance"=>"95"}}}
     let(:moment) {{"moment"=>{"empty"=>"135486.19", "front"=>"15972.81", "rear"=>"1301.46", "baggage"=>"2856", "fuel"=>"27360", "fuel_allowance"=>"-665"}}}
     let(:params) { weight.merge!(arm).merge!(moment) }
+    let(:totals) { { "weight"=> 2083.42,
+                     "arm"=> 87.50586055620086,
+                     "moment"=> 182311.46 } }
 
     before { post :calculate, params }
 
@@ -47,8 +50,8 @@ RSpec.describe WeightAndBalanceController, type: :controller do
       expect(assigns(:data)).to eq([params['weight'], params['arm'], params['moment']])
     end
 
-    xit 'assigns values for the totals row' do
-      expect(assigns(:totals)).to eq("")
+    it 'assigns values for the totals row' do
+      expect(assigns(:totals)).to eq(totals)
     end
   end
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe WeightsHelper, type: :helper do
-  include WeightsHelper
+RSpec.describe DataHelper, type: :helper do
+  include DataHelper
 
   let(:weight_data) { {
                               "max_takeoff" => "2440",
@@ -26,21 +26,21 @@ RSpec.describe WeightsHelper, type: :helper do
 
   let(:three_values) { no_values.merge({"empty" => "1000", "front" => "200", "rear" => "100"}) }
 
-  describe 'sum_weights' do
+  describe 'sum_hash_values' do
     it 'returns the sum of 0 elements' do
-      expect(sum_weights(no_values)).to eq(0)
+      expect(sum_hash_values(no_values)).to eq(0)
     end
 
     it 'returns the sum of 1 element' do
-      expect(sum_weights(one_value)).to eq(1000)
+      expect(sum_hash_values(one_value)).to eq(1000)
     end
 
     it 'returns the sum of 3 elements' do
-      expect(sum_weights(three_values)).to eq(1300)
+      expect(sum_hash_values(three_values)).to eq(1300)
     end
 
     it 'does not use the max takeoff weight for the sum' do
-      expect(sum_weights(weight_data)).to eq(2083.42)
+      expect(sum_hash_values(weight_data)).to eq(2083.42)
     end
   end
 

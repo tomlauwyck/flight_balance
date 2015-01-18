@@ -12,6 +12,7 @@ class WeightAndBalanceController < ApplicationController
 
     @data = [@weight, @arm, @moment]
     @within_limits = MaxWeightChecker.is_within_limits?(@weight)
+    @totals = WeightAndBalanceCalculation.execute(@data)
 
     render :result
   end
