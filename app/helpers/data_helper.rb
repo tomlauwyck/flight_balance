@@ -7,7 +7,7 @@ module DataHelper
   def sum_hash_values(hash)
     values_to_sum = hash.dup
     values_to_sum.delete('max_takeoff')
-    sum = values_to_sum.values.map(&:to_f).inject { |sum,n| sum + n }
+    sum = values_to_sum.values.map(&:to_f).inject { |sum,n|  sum + n }
     sum
   end
 end
